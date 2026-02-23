@@ -8,7 +8,7 @@ package juegosolimpicos;
  *
  * @author anton
  */
-public class JuegoOlimpico {
+public class JuegoOlimpico { //faltan los metodos y el to string
     //atributos
     private String nombreEvento, ciudadSede;
     private int anio;
