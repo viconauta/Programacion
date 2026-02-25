@@ -9,7 +9,7 @@ package juegosolimpicos;
  *
  * @author EAG
  */
-public class Medalla { //falta comprobar si el metodo static debe usar this.
+public class Medalla { //terminado
     //atributos
     private TipoMedalla tipo;
     private Participante participante;

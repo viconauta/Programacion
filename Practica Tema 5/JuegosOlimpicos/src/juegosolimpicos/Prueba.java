@@ -9,14 +9,15 @@ import java.time.LocalDate;
  *
  * @author EAG
  */
-public class Prueba { //QUE NO SE ME OLVIDE PARA MAÑANA HACER EL BOOLEANO PARA VERIFICAR QUE NO REPITA EL METODO DE ASIGNAR LAS MEDALLASF  y terminar el metodo
+public class Prueba { //terminada
     //atributos
     private String nombre;
     private Resultado[] resultados;
-    private Deporte limite;
+    private Deporte limite; //para acceder al num maximo de participantes
     private LocalDate fechaCelebracion;
     private Participante[] listaParticipantes;
     private Medalla[] medallasAsignadas;
+    private boolean medallasYaAsignadas = false;
     
     //constructores
     //defecto
@@ -26,7 +27,6 @@ public class Prueba { //QUE NO SE ME OLVIDE PARA MAÑANA HACER EL BOOLEANO PARA 
         this.fechaCelebracion = null;
         this.listaParticipantes = new Participante[0];
         this.medallasAsignadas = new Medalla[0];
-        
     }
     
     //parametros
@@ -68,6 +68,10 @@ public class Prueba { //QUE NO SE ME OLVIDE PARA MAÑANA HACER EL BOOLEANO PARA 
         return this.medallasAsignadas.clone();
     }
     
+    public boolean getMedallasYaAsignadas() {
+        return this.medallasYaAsignadas;
+    }
+    
     //setters
     public void setNombre(String n) {
         this.nombre = n;
@@ -87,6 +91,10 @@ public class Prueba { //QUE NO SE ME OLVIDE PARA MAÑANA HACER EL BOOLEANO PARA 
 
     public void setMedallasAsignadas(Medalla[] m) {
         this.medallasAsignadas = medallasAsignadas.clone();
+    }
+    
+    public void setMedallasYaAsignadas(boolean m) {
+        this.medallasYaAsignadas = m;
     }
     
     //metodos 
@@ -115,17 +123,37 @@ public class Prueba { //QUE NO SE ME OLVIDE PARA MAÑANA HACER EL BOOLEANO PARA 
     }
     
     public void asignarMedallas() { //metodo por arreglar, esta a medias
-        int contadorOro = 0;
-        int contadorPlata = 0;
-        int contadorBronce= 0;
-        for(int i = 0; i < this.resultados.length; i++) {
-            if(this.resultados[i].getPosicion() == 1) {
-                this.resultados[i].getParticipante().anadirMedalla(new Medalla(TipoMedalla.Oro, this.resultados[i].getParticipante(), this));
+        if(!this.getMedallasYaAsignadas()) {
+            for(int i = 0; i < this.resultados.length; i++) {
+                if(this.resultados[i].getPosicion() == 1) {
+                    this.resultados[i].getParticipante().anadirMedalla(new Medalla(TipoMedalla.Oro, this.resultados[i].getParticipante(), this));
+                }
             }
+            for(int i = 0; i < this.resultados.length; i++) {
+                if(this.resultados[i].getPosicion() == 2) {
+                    this.resultados[i].getParticipante().anadirMedalla(new Medalla(TipoMedalla.Plata, this.resultados[i].getParticipante(), this));
+                }
+            }
+            for(int i = 0; i < this.resultados.length; i++) {
+                if(this.resultados[i].getPosicion() == 3) {
+                    this.resultados[i].getParticipante().anadirMedalla(new Medalla(TipoMedalla.Bronce, this.resultados[i].getParticipante(), this));
+                }
+            }
+            this.setMedallasYaAsignadas(true); 
         }
     }
     
-    //metodos de validacion de registrar participante
+    public String mostrarClasificacionFinal() {
+        String imprimir =  "Resultados: ";
+            for(int i = 0; i < this.resultados.length; i++) {
+                if(this.resultados[i] != null) {
+                    imprimir += "\n - " + this.resultados[i].toString();
+                }
+            }
+        return imprimir;
+    }
+    
+    //validacion de registrar participante
     private boolean participanteYaInscrito (Participante p) {
         for(int i = 0; i < this.listaParticipantes.length; i++) {
             if(p.getNumIdOlimpico() == this.listaParticipantes[i].getNumIdOlimpico()) {
@@ -151,7 +179,22 @@ public class Prueba { //QUE NO SE ME OLVIDE PARA MAÑANA HACER EL BOOLEANO PARA 
     //toString
     @Override
     public String toString() {
-        
+        String imprimir = "Nombre de prueba: " + this.nombre +
+                "\n Fecha: " + this.fechaCelebracion +
+                "\n Medallas ya asignadas: " + this.medallasYaAsignadas +
+                "\n Medallas disponibles: ";
+        for(int i = 0; i < this.medallasAsignadas.length; i++) {
+            if(this.medallasAsignadas[i] != null){
+                imprimir += "\n Medalla: " + this.medallasAsignadas[i];
+            }
+        }
+        imprimir += "\n Lista de participantes: ";
+        for(int i = 0; i < this.listaParticipantes.length; i++) {
+            if(this.listaParticipantes[i] != null){
+                imprimir += "\n Medalla: " + this.listaParticipantes[i] + "\n";
+            }
+        }
+        imprimir += mostrarClasificacionFinal();
+        return imprimir;
     }
-    
 }

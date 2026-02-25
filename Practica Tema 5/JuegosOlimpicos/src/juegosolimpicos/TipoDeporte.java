@@ -8,7 +8,7 @@ package juegosolimpicos;
  *
  * @author anton
  */
-public enum TipoDeporte {
+public enum TipoDeporte { //terminado
     Sin_tipo,
     Individual,
     Equipos

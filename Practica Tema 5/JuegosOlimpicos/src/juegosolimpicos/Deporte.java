@@ -8,7 +8,7 @@ package juegosolimpicos;
  *
  * @author anton
  */
-public class Deporte { //cambiar el null de tipo
+public class Deporte { 
     //atributos
     private String nombre;
     private TipoDeporte tipo;
@@ -19,7 +19,7 @@ public class Deporte { //cambiar el null de tipo
     //defecto
     public Deporte() {
         this.nombre = "Sin nombre";
-        this.tipo = null;
+        this.tipo = TipoDeporte.Sin_tipo;
         this.numMaxParticipantes = 10;
         this.conjuntoPruebas = new Prueba[0];
     }
