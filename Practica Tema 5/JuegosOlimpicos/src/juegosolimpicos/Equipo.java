@@ -9,7 +9,7 @@ package juegosolimpicos;
  *
  * @author EAG
  */
-public class Equipo extends Participante { //terminado
+public class Equipo extends Participante {
     //atributos
     private String nombreE;
     private Participante[] participantes;
@@ -26,7 +26,7 @@ public class Equipo extends Participante { //terminado
     
     //parametros
     public Equipo(String nombreP, String pais, int edad, int numId, int totalMedallas, Medalla[] medallas, String nombre, Participante[] participante) {
-        super(nombreP, pais, edad, numId, totalMedallas, medallas);
+        super(nombreP, pais, edad, numId, medallas);
         this.nombreE = nombre;
         this.participantes = participante.clone();
     }

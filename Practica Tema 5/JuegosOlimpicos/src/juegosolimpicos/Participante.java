@@ -9,11 +9,12 @@ package juegosolimpicos;
  *
  * @author EAG
  */
-public abstract class Participante { //terminado
+public abstract class Participante {
     //atributos
     protected String nombreP, pais;
-    protected int edad, numIdOlimpico, numTotalMedallas;
+    protected int edad, numIdOlimpico, numTotalMedallas = 0;
     protected Medalla[] medallas;
+    private boolean perteneceAEquipo = false;
     
     //constructores
     //defecto
@@ -22,17 +23,15 @@ public abstract class Participante { //terminado
         this.pais = "Sin pais";
         this.edad = 18;
         this.numIdOlimpico = 12345;
-        this.numTotalMedallas = 10;
         this.medallas = new Medalla[0];
     }
     
     //parametros
-    public Participante(String n, String p, int e, int id, int numMed, Medalla[] med) {
+    public Participante(String n, String p, int e, int id, Medalla[] med) {
         this.nombreP = n;
         this.pais = p;
         this.edad = e;
         this.numIdOlimpico = id;
-        this.numTotalMedallas = numMed;
         this.medallas = med.clone();
     }
     
@@ -44,6 +43,7 @@ public abstract class Participante { //terminado
         this.numIdOlimpico = p.numIdOlimpico;
         this.numTotalMedallas = p.numTotalMedallas;
         this.medallas = p.medallas.clone();
+        this.perteneceAEquipo = p.perteneceAEquipo;
     }
     
     //getters
@@ -71,6 +71,10 @@ public abstract class Participante { //terminado
         return this.medallas.clone();
     }
     
+    public boolean getPertenceAEquipo() {
+        return this.perteneceAEquipo;
+    }
+    
     //setters
     public void setNombre(String n) {
         this.nombreP = n;
@@ -88,12 +92,12 @@ public abstract class Participante { //terminado
         this.numIdOlimpico = num;
     }
 
-    public void setNumTotalMedallas(int num) {
-        this.numTotalMedallas = num;
-    }
-
     public void setMedallas(Medalla[] m) {
         this.medallas = m.clone();
+    }
+    
+    public void setPerteneceAEquipo(boolean p) {
+        this.perteneceAEquipo = p;
     }
     
     //metodos

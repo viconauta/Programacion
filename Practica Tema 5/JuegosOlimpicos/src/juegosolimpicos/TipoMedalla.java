@@ -9,7 +9,7 @@ package juegosolimpicos;
  *
  * @author EAG
  */
-public enum TipoMedalla { //terminada
+public enum TipoMedalla {
     Sin_medalla,
     Oro,
     Plata,

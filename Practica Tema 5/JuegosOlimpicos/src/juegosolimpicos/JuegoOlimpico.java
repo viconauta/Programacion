@@ -8,7 +8,7 @@ package juegosolimpicos;
  *
  * @author anton
  */
-public class JuegoOlimpico { //faltan metodos que no se implementar
+public class JuegoOlimpico { 
     //atributos
     private String nombreEvento, ciudadSede;
     private int anio;
@@ -104,12 +104,19 @@ public class JuegoOlimpico { //faltan metodos que no se implementar
         this.listaParticipantes = array;
     } 
     
-    public void crearEquipo(Participante p) {
-        
+    public void crearEquipo(Participante p, String nombreP, String pais, int edad, int numId, int totalMedallas, Medalla[] medallas, 
+            String nombre, Participante[] participantes) {
+        Equipo equipo = new Equipo(nombreP, pais, edad, numId, totalMedallas, medallas, nombre, participantes);
+        Participante[] array = new Participante[this.listaParticipantes.length + 1];
+        for(int i = 0; i < this.listaParticipantes.length; i++){
+            array[i] = this.listaParticipantes[i];
+        }
+        array[this.listaParticipantes.length] = equipo;
+        array[this.listaParticipantes.length].setPerteneceAEquipo(true);
     }
     
-    public void inscribirParticipanteEnPrueba(Participante p) {
-        
+    public void inscribirParticipanteEnPrueba(Prueba pr, Participante p) {
+        pr.registrarParticipante(p);
     }
     
     public String mostrarMedalleroPais() {

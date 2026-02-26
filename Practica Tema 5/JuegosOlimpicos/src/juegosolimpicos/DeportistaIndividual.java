@@ -9,7 +9,7 @@ package juegosolimpicos;
  *
  * @author EAG
  */
-public class DeportistaIndividual extends Participante { //fterminado
+public class DeportistaIndividual extends Participante {
     //atributos
     private String especialidad;
     
@@ -22,7 +22,7 @@ public class DeportistaIndividual extends Participante { //fterminado
     
     //parametros
     public DeportistaIndividual(String nombreP, String pais, int edad, int numId, int totalMedallas, Medalla[] medallas, String esp) {
-        super(nombreP, pais, edad, numId, totalMedallas, medallas);
+        super(nombreP, pais, edad, numId, medallas);
         this.especialidad = esp;
     }
     

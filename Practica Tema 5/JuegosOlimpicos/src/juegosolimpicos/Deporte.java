@@ -8,7 +8,7 @@ package juegosolimpicos;
  *
  * @author anton
  */
-public class Deporte { //terminado
+public class Deporte {
     //atributos
     private String nombre;
     private TipoDeporte tipo;

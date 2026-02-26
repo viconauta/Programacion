@@ -9,7 +9,7 @@ package juegosolimpicos;
  *
  * @author EAG
  */
-public class Medalla { //terminado
+public class Medalla {
     //atributos
     private TipoMedalla tipo;
     private Participante participante;

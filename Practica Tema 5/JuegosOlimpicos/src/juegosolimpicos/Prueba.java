@@ -9,7 +9,7 @@ import java.time.LocalDate;
  *
  * @author EAG
  */
-public class Prueba { //terminada
+public class Prueba {
     //atributos
     private String nombre;
     private Resultado[] resultados;
