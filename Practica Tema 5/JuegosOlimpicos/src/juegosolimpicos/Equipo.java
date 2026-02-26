@@ -9,7 +9,7 @@ package juegosolimpicos;
  *
  * @author EAG
  */
-public class Equipo extends Participante { //falta terminar los metodos y el to string
+public class Equipo extends Participante { //terminado
     //atributos
     private String nombreE;
     private Participante[] participantes;
@@ -70,12 +70,32 @@ public class Equipo extends Participante { //falta terminar los metodos y el to 
     
     @Override
     public String mostrarInformacion() {
-        
+        String info = "Equipo: " + this.nombreE +
+                      "\nPais: " + this.pais +
+                      "\nID Olimpico: " + this.numIdOlimpico +
+                      "\nTotal medallas: " + this.numTotalMedallas +
+                      "\nMiembros:\n";
+        for (int i = 0; i < this.participantes.length; i++) {
+            if (this.participantes[i] != null) {
+                info += this.participantes[i].getNombre() + "\n";
+            }
+        }
+        return info;
     }
     
     //to string
     @Override
     public String toString() {
-        
+        String imprimir = "Equipo: " + this.nombreE +
+                          "\nPais: " + this.pais +
+                          "\nID Olimpico: " + this.numIdOlimpico +
+                          "\nTotal medallas: " + this.numTotalMedallas +
+                          "\nMiembros:\n";
+        for (int i = 0; i < this.participantes.length; i++) {
+            if (this.participantes[i] != null) {
+                imprimir += this.participantes[i].getNombre() + "\n";
+            }
+        }
+        return imprimir;
     }
 }

@@ -8,7 +8,7 @@ package juegosolimpicos;
  *
  * @author anton
  */
-public class Resultado {
+public class Resultado { //terminado
     //atributos
     private int posicion;
     private Participante participante;

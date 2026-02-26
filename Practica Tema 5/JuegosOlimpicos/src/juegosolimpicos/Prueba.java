@@ -111,15 +111,12 @@ public class Prueba { //terminada
     
     public void registrarResultados(int pos, Participante p) {
         Resultado r = new Resultado(pos, p, this);
+        Resultado[] array = new Resultado[this.resultados.length + 1];
         for(int i = 0; i < this.resultados.length; i++) {
-            if(resultados[i] == null) {
-                resultados[i] = r;
-                break;
-            }
+            array[i] = this.resultados[i];
         }
-        Resultado[] array = new Resultado[resultados.length + 1];
-        array[resultados.length] = r;
-        resultados = array;
+        array[this.resultados.length] = r;
+        this.resultados = array;
     }
     
     public void asignarMedallas() { //metodo por arreglar, esta a medias

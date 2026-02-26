@@ -9,7 +9,7 @@ package juegosolimpicos;
  *
  * @author EAG
  */
-public abstract class Participante {
+public abstract class Participante { //terminado
     //atributos
     protected String nombreP, pais;
     protected int edad, numIdOlimpico, numTotalMedallas;
@@ -98,14 +98,14 @@ public abstract class Participante {
     
     //metodos
     public void anadirMedalla(Medalla m) {
-    Medalla[] nuevo = new Medalla[this.medallas.length + 1];
-    for (int i = 0; i < this.medallas.length; i++) {
-        nuevo[i] = this.medallas[i];
-    }
-    nuevo[nuevo.length - 1] = m;
-    this.medallas = nuevo;
-    this.numTotalMedallas++;
-    }
+        Medalla[] nuevo = new Medalla[this.medallas.length + 1];
+        for (int i = 0; i < this.medallas.length; i++) {
+            nuevo[i] = this.medallas[i];
+        }
+        nuevo[medallas.length] = m;
+        this.medallas = nuevo;
+        this.numTotalMedallas++;
+        }
 
     public abstract int calcularTotalMedallas();
     

@@ -9,7 +9,7 @@ package juegosolimpicos;
  *
  * @author EAG
  */
-public class DeportistaIndividual extends Participante { //falta repasar metodo de medallas y terminar mostrar info y to string
+public class DeportistaIndividual extends Participante { //fterminado
     //atributos
     private String especialidad;
     
@@ -51,12 +51,30 @@ public class DeportistaIndividual extends Participante { //falta repasar metodo 
     
     @Override
     public String mostrarInformacion() {
-        
+        return "Deportista individual: " + this.nombreP +
+               "\nPais: " + this.pais +
+               "\nEdad: " + this.edad +
+               "\nID Olimpico: " + this.numIdOlimpico +
+               "\nEspecialidad: " + this.especialidad +
+               "\nTotal medallas: " + this.numTotalMedallas;
     }
-    
+
     //to string
     @Override
     public String toString() {
-        
+        String imprimir = "Deportista individual:\n" +
+                          "Nombre: " + this.nombreP +
+                          "\nPais: " + this.pais +
+                          "\nEdad: " + this.edad +
+                          "\nID Olimpico: " + this.numIdOlimpico +
+                          "\nEspecialidad: " + this.especialidad +
+                          "\nTotal medallas: " + this.numTotalMedallas +
+                          "\nMedallas:\n";
+        for (int i = 0; i < this.medallas.length; i++) {
+            if (this.medallas[i] != null) {
+                imprimir += "- " + this.medallas[i].getTipo() + "\n";
+            }
+        }
+        return imprimir;
     }
 }

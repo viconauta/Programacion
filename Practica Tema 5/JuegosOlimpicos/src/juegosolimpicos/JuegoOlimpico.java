@@ -8,7 +8,7 @@ package juegosolimpicos;
  *
  * @author anton
  */
-public class JuegoOlimpico { //faltan los metodos y el to string
+public class JuegoOlimpico { //faltan metodos que no se implementar
     //atributos
     private String nombreEvento, ciudadSede;
     private int anio;
@@ -86,4 +86,43 @@ public class JuegoOlimpico { //faltan los metodos y el to string
     }
     
     //metodos
+    public void registrarNuevoDeporte(Deporte d) {
+        Deporte[] array = new Deporte[this.listaDeportes.length + 1];
+        for(int i = 0; i < array.length; i++) {
+            array[i] = this.listaDeportes[i];
+        }
+        array[this.listaDeportes.length] = d;
+        this.listaDeportes = array;
+    }
+    
+    public void registrarNuevoDeportista(Participante p) {
+        Participante[] array = new Participante[this.listaParticipantes.length + 1];
+        for(int i = 0; i < this.listaParticipantes.length; i++) {
+            array[i] = this.listaParticipantes[i];
+        }
+        array[this.listaParticipantes.length] = p;
+        this.listaParticipantes = array;
+    } 
+    
+    public void crearEquipo(Participante p) {
+        
+    }
+    
+    public void inscribirParticipanteEnPrueba(Participante p) {
+        
+    }
+    
+    public String mostrarMedalleroPais() {
+        
+    }
+    
+    public String mostrarParticipanteMasMedallas() {
+        Participante max = this.listaParticipantes[0];
+        for (int i = 1; i < this.listaParticipantes.length; i++) {
+            if (this.listaParticipantes[i].getNumTotalMedallas() > max.getNumTotalMedallas()) {
+                max = this.listaParticipantes[i];
+            }
+        }
+        return "Participante con más medallas:\n" + max.toString();
+    }
 }
